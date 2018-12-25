@@ -1,5 +1,7 @@
 {
   "name": "Wifi",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
