@@ -14,7 +14,20 @@ export class HomePage {
     constructor(private loadingCtrl: LoadingController) { }
 
 
-
+    // check & request permission granted or Not
+    getPermission() {
+    return new Promise<any>((resolve, reject) => {
+      if (this.network.type === 'wifi' || this.network.type === 'WIFI') {
+        // view router info
+        wifiinformation.getPermission((success) => {
+          resolve([success]);
+        }, (err) => { reject(err); });
+      } else {
+        reject('No Wi-Fi Connected.');
+      }
+    });
+  }
+    
 
     getWifiIPAddress() {
         wifiinformation.getWifiInfo(success => {
