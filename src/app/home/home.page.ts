@@ -11,7 +11,9 @@ declare var wifiinformation: any;
 })
 export class HomePage {
 
-    constructor(private loadingCtrl: LoadingController) { }
+    constructor(private loadingCtrl: LoadingController) {
+        this.getPermission().then((data) => console.log(data)).catch((er) => console.error(er));
+    }
 
 
     // check & request permission granted or Not
